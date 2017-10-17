@@ -1,7 +1,6 @@
 require 'capybara/dsl'
 include Capybara::DSL
 
-
 module SiteActions
   def click_login
     self.menu.login.click
@@ -59,13 +58,3 @@ def prerequisites
   @home = Home.new
 end
 prerequisites
-
-def test_case(ref, name)
-  puts "**#{ref} - #{name}"
-  yield
-rescue StandardError => e
-  puts "[FAILED] #{e.message}"
-ensure
-  page.driver.quit
-end
-

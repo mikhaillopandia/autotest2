@@ -4,7 +4,6 @@ require 'spec_helper'
 require 'capybara/rspec'
 require_relative '../site'
 
-
 feature "the signin process" do
   given(:home) { Home.new }
   given(:login) { Login.new }
