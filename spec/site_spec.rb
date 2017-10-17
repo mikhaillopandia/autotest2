@@ -2,7 +2,7 @@ Bundler.require(:default)
 require 'spec_helper'
 
 require 'capybara/rspec'
-require_relative '../site'
+require_relative '../lib/site'
 
 feature "the signin process" do
   given(:home) { Home.new }
