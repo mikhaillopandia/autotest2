@@ -2,7 +2,7 @@ Bundler.require(:default)
 require 'spec_helper'
 
 require 'capybara/rspec'
-require_relative '../capybara'
+require_relative '../site'
 
 
 feature "the signin process" do
