@@ -1,6 +1,3 @@
-require 'capybara/dsl'
-include Capybara::DSL
-
 module SiteActions
   def click_login
     self.menu.login.click
@@ -14,22 +11,22 @@ end
 # General menu section for Login & Home pages
 class MenuSection < SitePrism::Section
   # general elements
-  element :articles, :xpath, "//a[text()='Articles']"
-  element :home, :xpath, "//a[text()='Home']"
+  element :articles, 'a', text: 'Articles'
+  element :home, 'a', text: 'Home'
   # for not logged in user
-  element :login, :xpath, "//a[text()='Login']"
-  element :sign_up, :xpath, "//a[text()='Sign up']"
+  element :login, 'a', text: 'Login'
+  element :sign_up, 'a', text: 'Sign up'
   # for logged in user
-  element :edit_account, :xpath, "//a[text()='Edit account']"
-  element :logout, :xpath, "//a[text()='Logout']"
-  element :users, :xpath, "//a[text()='Users']"
+  element :edit_account, 'a', text: 'Edit account'
+  element :logout, 'a', text: 'Logout'
+  element :users, 'a', text: 'Users'
 end
 # Home page
 class Home < SitePrism::Page
   set_url '/'
   set_url_matcher %r{demoapp.strongqa.com/?}
 
-  element :login_success, :xpath, "//div[text()='Signed in successfully.']"
+  element :login_success, 'div', text: 'Signed in successfully.'
   section :menu, MenuSection, '#main_menu'
   include SiteActions
 end
@@ -40,7 +37,7 @@ class Login < SitePrism::Page
 
   element :email, "input[name='user[email]']"
   element :password, "input[name='user[password]']"
-  element :login_fail, :xpath, "//div[text()='Invalid email or password.']"
+  element :login_fail, 'div', text: 'Invalid email or password.'
   section :menu, MenuSection, '#main_menu'
   include SiteActions
 
@@ -49,12 +46,3 @@ class Login < SitePrism::Page
     self.password.set credentials[:password]
   end
 end
-
-def prerequisites
-  Capybara.run_server = false
-  Capybara.default_driver = :selenium
-  Capybara.app_host = 'http://demoapp.strongqa.com'
-  @login = Login.new
-  @home = Home.new
-end
-prerequisites
