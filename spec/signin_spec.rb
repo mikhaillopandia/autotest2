@@ -81,7 +81,7 @@ feature "The signin process" do
 
     context "when incorrect data" do
       given(:incorrect_credentials) { {email: 'FALSE@i.ua', password: 'FALSE'} }
-      scenario "user can not login with incorrect password" do
+      scenario "user can not login with incorrect data" do
         login.load
         login.fill_form(incorrect_credentials)
         login.click_enter
