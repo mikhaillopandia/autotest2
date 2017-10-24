@@ -3,24 +3,20 @@ module SignInSteps
     expect(page).to have_current_path('/users/sign_in')
   end
 
-  step "I fill out :type email" do |type|
-    email = case type
-  		    when 'correct'
-		      'lopandya96@gmail.com'
-		    else
-			  'FALSE@i.ua'
-		    end
-    fill_in('user[email]', :with => email)
+  step "I fill out correct email" do
+    fill_in('user[email]', :with => 'lopandya96@gmail.com')
   end
 
-  step "I fill out :type password" do |type|
-    password = case type
-			   when 'correct'
-			     'lopandya96'
-			   else
-			     'FALSE'
-			   end
-    fill_in('user[password]', :with => password)
+  step "I fill out incorrect email" do
+    fill_in('user[email]', :with => 'FALSE@gmail.com')
+  end
+
+  step "I fill out correct password" do
+    fill_in('user[password]', :with => 'lopandya96')
+  end
+
+  step "I fill out incorrect password" do
+    fill_in('user[password]', :with => 'FALSE')
   end
 
   step 'I press enter key' do
