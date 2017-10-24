@@ -8,7 +8,7 @@ Feature: The signin process
   Scenario: User can login with correct credentials
     Given I am on login page
     When I fill out correct email
-	And I fill out correct password
+    And I fill out correct password
     And I press enter key
     Then I should be logged in successfully
 
@@ -31,21 +31,21 @@ Feature: The signin process
 
   Scenario: User can not login with incorrect email
     Given I am on login page
-    When I fill out incorrect email 
-	And I fill out correct password
+    When I fill out incorrect email
+    And I fill out correct password
     And I press enter key
     Then I should not be logged in
 
   Scenario: User can not login with incorrect password
     Given I am on login page
-    When I fill out correct email 
-	And I fill out incorrect password
+    When I fill out correct email
+    And I fill out incorrect password
     And I press enter key
     Then I should not be logged in
 
   Scenario: User can not login with incorrect data
     Given I am on login page
-    When I fill out incorrect email 
-	And I fill out incorrect password
+    When I fill out incorrect email
+    And I fill out incorrect password
     And I press enter key
     Then I should not be logged in
