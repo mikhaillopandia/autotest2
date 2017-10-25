@@ -1,6 +1,6 @@
 Bundler.require(:default)
-require 'capybara/dsl'
-include Capybara::DSL
+World(Capybara::DSL)
+World(Capybara::RSpecMatchers)
 
 require_relative '../pages/signin'
 
