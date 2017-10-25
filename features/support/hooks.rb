@@ -1,6 +1,6 @@
 Before do |scenario|
-  @login ||= Login.new
-  @home ||= Home.new
+  @login ||= LoginPage.new
+  @home ||= HomePage.new
 end
 
 After do |scenario|

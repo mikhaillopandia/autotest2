@@ -22,7 +22,7 @@ class MenuSection < SitePrism::Section
   element :users, 'a', text: 'Users'
 end
 # Home page
-class Home < SitePrism::Page
+class HomePage < SitePrism::Page
   set_url '/'
   set_url_matcher %r{demoapp.strongqa.com/?}
 
@@ -31,7 +31,7 @@ class Home < SitePrism::Page
   include SiteActions
 end
 # Login page
-class Login < SitePrism::Page
+class LoginPage < SitePrism::Page
   set_url '/users/sign_in'
   set_url_matcher %r{demoapp.strongqa.com/users/sign_in}
 

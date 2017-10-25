@@ -1,8 +1,8 @@
 Bundler.require(:default)
-World(Capybara::DSL)
-World(Capybara::RSpecMatchers)
+require 'capybara/dsl'
+require_relative '../../pages/signin_page'
 
-require_relative '../pages/signin'
+World(Capybara::DSL)
 
 Capybara.run_server = false
 Capybara.default_driver = :selenium
