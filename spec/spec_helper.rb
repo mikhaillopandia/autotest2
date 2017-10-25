@@ -1,8 +1,11 @@
 Bundler.require(:default)
 require 'capybara/rspec'
+require 'turnip/capybara'
 require_relative '../lib/signin'
 require 'capybara/dsl'
 include Capybara::DSL
+
+Dir.glob(File.expand_path("acceptance/steps/*steps.rb", File.dirname(__FILE__))) { |f| require f }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
