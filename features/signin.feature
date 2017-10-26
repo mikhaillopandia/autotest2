@@ -1,4 +1,3 @@
-@sign_in_steps
 Feature: The signin process
   Scenario: User can open login page via menu
     Given I am on home page
